@@ -4,8 +4,17 @@
       relink: true
 - clean: ['~']
 - link: 
-    ~/.zshrc: zsh/zshrc
+    # zsh
+    ~/.zshrc:      zsh/zshrc
+    ~/.zalias:     zsh/zalias
+    ~/.zfunctions: zsh/zfunctions
+
+    # byobu    
     ~/.byobu/keybindings.tmux: byobu/keybindings.tmux    
+
+    # git    
     ~/.gitconfig: .gitconfig
+
+    # rime
     ~/.config/ibus/rime/bopomofo_tw.custom.yaml: rime/bopomofo_tw.custom.yaml
-    ~/.config/ibus/rime/default.custom.yaml: rime/default.custom.yaml
+    ~/.config/ibus/rime/default.custom.yaml:     rime/default.custom.yaml

@@ -19,5 +19,7 @@ antigen theme jeremyFreeAgent/oh-my-zsh-powerline-theme powerline
 # Tell antigen that you're done.
 antigen apply
 
+source ~/.zalias
+
 fpath=(~/.zfunctions $fpath)
 autoload gproxy 
