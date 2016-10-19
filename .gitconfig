@@ -1,0 +1,12 @@
+[diff]
+	external = meld
+[gc]
+	autoDetach = false
+[user]
+	email = justfool@gmail.com
+	name = justfool
+[credential]
+	helper = cache
+
+[push]
+	default = simple

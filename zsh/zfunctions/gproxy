@@ -1,0 +1,13 @@
+#!/usr/bin/env zsh
+
+if [[ "${1}" == "run" ]]; then
+	ssh -f -i /home/justfool/.ssh/xshell_rsa2048.pri -D 8080 -C2qTnN justfool@$2
+elif [[ "${1}" == "stop" ]]; then
+	kill -9 `ps aux |  grep '[s]sh -f' | cut -d ' ' -f 2`
+else
+       printf "usage: gproxy run ip\n"
+       printf "       gproxy stop\n"
+fi
+
+
+

@@ -1,0 +1,11 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+- clean: ['~']
+- link: 
+    ~/.zshrc: zsh/zshrc
+    ~/.byobu/keybindings.tmux: byobu/keybindings.tmux    
+    ~/.gitconfig: .gitconfig
+    ~/.config/ibus/rime/bopomofo_tw.custom.yaml: rime/bopomofo_tw.custom.yaml
+    ~/.config/ibus/rime/default.custom.yaml: rime/default.custom.yaml
