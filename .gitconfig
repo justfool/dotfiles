@@ -6,7 +6,7 @@
 	email = justfool@gmail.com
 	name = justfool
 [credential]
-	helper = cache
+	helper = store
 
 [push]
 	default = simple
