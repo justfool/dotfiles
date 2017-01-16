@@ -1,2 +1,4 @@
 alias ip='ip -c'
-alias make='colormake'
+
+# colormake will break menuconfig, nconfig ...
+#alias make='colormake'
