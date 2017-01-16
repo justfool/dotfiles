@@ -1,5 +1,5 @@
-if [ -f ~/antigen/antigen.zsh ]; then
-    source ~/antigen/antigen.zsh
+if [ -f ~/.antigen/antigen.zsh ]; then
+    source ~/.antigen/antigen.zsh
 elif [ -f /usr/share/zsh-antigen/antigen.zsh ]; then
     source /usr/share/zsh-antigen/antigen.zsh
 fi
@@ -17,8 +17,25 @@ antigen bundle pyenv
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
 
-# Load the theme.
-antigen theme jeremyFreeAgent/oh-my-zsh-powerline-theme powerline
+# [ theme - powerline ]
+# antigen theme jeremyFreeAgent/oh-my-zsh-powerline-theme powerline
+
+# [ theme - punctual ]
+
+## [ part ]
+PUNCTUAL_SHOW_USER="false";
+
+## [ color ]
+PUNCTUAL_TIMESTAMP_COLOUR="red";
+PUNCTUAL_HOSTNAME_COLOUR="blue";
+PUNCTUAL_CURRENT_DIR_COLOUR="magenta";
+PUNCTUAL_GIT_COLOUR="cyan";
+
+## [ prompt ]
+PUNCTUAL_PROMPT="\u262f ";
+
+antigen theme dannynimmo/punctual-zsh-theme punctual
+
 
 # Tell antigen that you're done.
 antigen apply
