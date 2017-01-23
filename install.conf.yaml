@@ -13,7 +13,8 @@
     ~/.byobu/keybindings.tmux: byobu/keybindings.tmux    
 
     # git    
-    ~/.gitconfig: .gitconfig
+    ~/.gitconfig:         git/config
+    ~/.config/git/ignore: git/ignore
 
     # rime
     ~/.config/ibus/rime/bopomofo_tw.custom.yaml: rime/bopomofo_tw.custom.yaml
