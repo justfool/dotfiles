@@ -1,5 +1,4 @@
 [diff]
-	external = meld
 [gc]
 	autoDetach = false
 [user]
