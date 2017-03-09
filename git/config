@@ -1,4 +1,5 @@
 [diff]
+	noprefix = false
 [gc]
 	autoDetach = false
 [user]
@@ -6,6 +7,16 @@
 	name = justfool
 [credential]
 	helper = store
-
+[core]
+        editor = nano
+        pager = less -iXFR -x1,5
+        fileMode = false
 [push]
 	default = simple
+[status]
+        showUntrackedFiles = no
+[rebase]
+        autosquash = true
+[alias]
+        lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+
