@@ -47,7 +47,7 @@ source ~/.zalias
 
 fpath=(~/.zfunctions $fpath)
 autoload gproxy 
-
+autoload svndiff
 
 # Disable auto title feature, so byobu can keep the window title
 export DISABLE_AUTO_TITLE="true"
