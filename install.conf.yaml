@@ -6,6 +6,7 @@
 - link: 
     # zsh
     ~/.zshrc:      zsh/zshrc
+    ~/.zshenv:     zsh/zshenv
     ~/.zalias:     zsh/zalias
     ~/.zfunctions: zsh/zfunctions
 

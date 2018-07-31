@@ -1,0 +1,7 @@
+typeset -U path
+path=(~/bin ~/.local/bin $path)
+
+# Disable auto title feature, so byobu can keep the window title
+export DISABLE_AUTO_TITLE="true"
+
+export EDITOR=nano

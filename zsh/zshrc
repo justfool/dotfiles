@@ -19,36 +19,21 @@ antigen bundle pyenv
 
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
+# async
+antigen bundle mafredri/zsh-async
 
-# [ theme - powerline ]
-# antigen theme jeremyFreeAgent/oh-my-zsh-powerline-theme powerline
-
-# [ theme - punctual ]
-
-## [ part ]
-PUNCTUAL_SHOW_USER="false";
-
-## [ color ]
-PUNCTUAL_TIMESTAMP_COLOUR="red";
-PUNCTUAL_HOSTNAME_COLOUR="blue";
-PUNCTUAL_CURRENT_DIR_COLOUR="magenta";
-PUNCTUAL_GIT_COLOUR="cyan";
-
-## [ prompt ]
-PUNCTUAL_PROMPT="\u262f ";
-
-antigen theme dannynimmo/punctual-zsh-theme punctual
-
+#theme pure
+antigen bundle sindresorhus/pure
 
 # Tell antigen that you're done.
 antigen apply
 
+# apply alias
 source ~/.zalias
 
+# apply custom function
 fpath=(~/.zfunctions $fpath)
 autoload gproxy 
 autoload svndiff
 
-# Disable auto title feature, so byobu can keep the window title
-export DISABLE_AUTO_TITLE="true"
 
