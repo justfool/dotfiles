@@ -3,3 +3,5 @@ alias ip='ip -c'
 # colormake will break menuconfig, nconfig ...
 alias make='colormake'
 alias byobu='byobu -S ~/.tmux/default'
+
+alias rgc='rg -t c'
