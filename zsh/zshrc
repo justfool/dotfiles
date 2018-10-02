@@ -36,4 +36,9 @@ fpath=(~/.zfunctions $fpath)
 autoload gproxy 
 autoload svndiff
 
+autoload -U backward-kill-word-match
+autoload -U select-word-style
+select-word-style shell
+zle -N backward-kill-word backward-kill-word-match
+
 
