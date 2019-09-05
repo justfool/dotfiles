@@ -22,8 +22,17 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 # async
 antigen bundle mafredri/zsh-async
 
-#theme pure
-antigen bundle sindresorhus/pure
+autoload -U is-at-least
+
+if is-at-least 5.1; then
+    # Theme: powerlevel10k
+    antigen theme romkatv/powerlevel10k
+    # powerlevel 10k setting
+    [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+else
+    # Theme: pure
+    antigen theme sindresorhus/pure
+fi
 
 # Tell antigen that you're done.
 antigen apply
@@ -41,4 +50,6 @@ autoload -U select-word-style
 select-word-style shell
 zle -N backward-kill-word backward-kill-word-match
 
-
+# fix windows ssh's home/end key
+bindkey "^[[1~" beginning-of-line
+bindkey "^[[4~" end-of-line

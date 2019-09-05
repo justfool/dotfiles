@@ -9,6 +9,7 @@
     ~/.zshenv:     zsh/zshenv
     ~/.zalias:     zsh/zalias
     ~/.zfunctions: zsh/zfunctions
+    ~/.p10k.zsh:   zsh/p10k
 
     # byobu    
     ~/.byobu/keybindings.tmux: byobu/keybindings.tmux    
