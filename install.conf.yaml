@@ -12,7 +12,8 @@
     ~/.p10k.zsh:   zsh/p10k
 
     # byobu    
-    ~/.byobu/keybindings.tmux: byobu/keybindings.tmux    
+    ~/.config/byobu/keybindings.tmux: byobu/keybindings.tmux
+    ~/.config/byobu/.tmux.conf: byobu/tmux.conf
 
     # git    
     ~/.gitconfig:         git/config
