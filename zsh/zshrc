@@ -1,5 +1,7 @@
 if [ -f ~/.antigen/antigen.zsh ]; then
     source ~/.antigen/antigen.zsh
+elif [ -f ~/.linuxbrew/share/antigen/antigen.zsh ]; then
+    source ~/.linuxbrew/share/antigen/antigen.zsh
 elif [ -f /usr/share/zsh-antigen/antigen.zsh ]; then
     source /usr/share/zsh-antigen/antigen.zsh
 else
