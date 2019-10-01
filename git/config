@@ -19,4 +19,6 @@
         autosquash = true
 [alias]
         lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-
+	hide = update-index --assume-unchanged
+	unhide = update-index --no-assume-unchanged
+	hidden = ! git ls-files -v | grep '^h' | cut -c3-
