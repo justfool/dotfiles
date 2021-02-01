@@ -1,0 +1,57 @@
+if [ -f ~/.antigen/antigen.zsh ]; then
+    source ~/.antigen/antigen.zsh
+elif [ -f ~/.linuxbrew/share/antigen/antigen.zsh ]; then
+    source ~/.linuxbrew/share/antigen/antigen.zsh
+elif [ -f /usr/share/zsh-antigen/antigen.zsh ]; then
+    source /usr/share/zsh-antigen/antigen.zsh
+else
+    git clone https://github.com/zsh-users/antigen.git ~/.antigen
+    source ~/.antigen/antigen.zsh
+fi
+
+# Load the oh-my-zsh's library.
+antigen use oh-my-zsh
+
+# Bundles from the default repo (robbyrussell's oh-my-zsh).
+antigen bundle git
+antigen bundle pip
+antigen bundle command-not-found
+antigen bundle common-aliases
+antigen bundle pyenv
+
+# Syntax highlighting bundle.
+antigen bundle zsh-users/zsh-syntax-highlighting
+# async
+antigen bundle mafredri/zsh-async
+
+autoload -U is-at-least
+
+if is-at-least 5.1; then
+    # Theme: powerlevel10k
+    antigen theme romkatv/powerlevel10k
+    # powerlevel 10k setting
+    [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+else
+    # Theme: pure
+    antigen theme sindresorhus/pure
+fi
+
+# Tell antigen that you're done.
+antigen apply
+
+# apply alias
+source ~/.zalias
+
+# apply custom function
+fpath=(~/.zfunctions $fpath)
+autoload gproxy 
+autoload svndiff
+
+autoload -U backward-kill-word-match
+autoload -U select-word-style
+select-word-style shell
+zle -N backward-kill-word backward-kill-word-match
+
+# fix windows ssh's home/end key
+bindkey "^[[1~" beginning-of-line
+bindkey "^[[4~" end-of-line
