@@ -1,16 +1,8 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
-
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
-    print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
+    print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
     command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
-    command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
+    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.zinit/bin" && \
         print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
         print -P "%F{160}▓▒░ The clone has failed.%f%b"
 fi
@@ -19,7 +11,7 @@ source "$HOME/.zinit/bin/zinit.zsh"
 
 # 语法高亮
 zinit ice lucid wait='0' atinit='zpcompinit'
-zinit light zdharma/fast-syntax-highlighting
+zinit light zdharma-continuum/fast-syntax-highlighting
 
 # 自动建议
 zinit ice lucid wait="0" atload='_zsh_autosuggest_start'
@@ -30,35 +22,39 @@ zinit ice lucid wait='0'
 zinit light zsh-users/zsh-completions
 
 # 加载 OMZ 框架及部分插件
-zinit snippet OMZ::lib/completion.zsh
-zinit snippet OMZ::lib/history.zsh
-zinit snippet OMZ::lib/key-bindings.zsh
-zinit snippet OMZ::lib/theme-and-appearance.zsh
-zinit snippet OMZ::lib/git.zsh
-zinit snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
-zinit snippet OMZ::plugins/sudo/sudo.plugin.zsh
 
-zinit ice svn
-zinit snippet OMZ::plugins/extract
+zinit wait lucid for               \
+  OMZL::completion.zsh             \
+  OMZL::history.zsh                \
+  OMZL::key-bindings.zsh           \
+  OMZL::theme-and-appearance.zsh   \
+  OMZL::git.zsh                    \
+  OMZL::clipboard.zsh              \
+  OMZP::colored-man-pages          \
+  OMZP::git                        \
+  OMZP::sudo
 
-zinit ice lucid wait='1'
-zinit snippet OMZ::plugins/git/git.plugin.zsh
+# Auto detect 256 color support
+zinit light 'chrissicool/zsh-256color'
 
-zinit ice depth=1;
-zinit light romkatv/powerlevel10k
+#zinit ice svn
+#zinit snippet OMZ::plugins/extract
 
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)
-zinit light-mode for \
-    zinit-zsh/z-a-rust \
-    zinit-zsh/z-a-as-monitor \
-    zinit-zsh/z-a-patch-dl \
-    zinit-zsh/z-a-bin-gem-node
+#zinit light-mode for \
+#    zinit-zsh/z-a-rust \
+#    zinit-zsh/z-a-as-monitor \
+#    zinit-zsh/z-a-patch-dl \
+#    zinit-zsh/z-a-bin-gem-node
 
 ### End of Zinit's installer chunk
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# Load starship theme
+eval "$(starship init zsh)"
+
+# Init Zoxide
+eval "$(zoxide init zsh | dos2unix)"
